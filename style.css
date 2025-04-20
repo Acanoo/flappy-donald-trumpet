@@ -113,3 +113,87 @@ body {
   #end-game-button:hover {
     background-color: #f09819;
   }
+  /* Estilo general para el cuerpo */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff5e5b, #f09819); /* Fondo futurista */
+    overflow: hidden; /* Evitar desplazamiento horizontal */
+  }
+  
+  /* Contenedor principal */
+  #game-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: white;
+  }
+  
+  /* Canvas responsivo */
+  canvas {
+    border: 2px solid #fff;
+    background-color: #fff; /* Fondo blanco del canvas */
+    max-width: 100%; /* Asegurar que no exceda el ancho de la pantalla */
+    height: auto; /* Mantener la proporción */
+  }
+  
+  /* Menú de inicio */
+  #start-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%; /* Ancho máximo del menú */
+    max-width: 400px; /* Ancho máximo para pantallas grandes */
+    box-sizing: border-box; /* Asegurar que el padding no afecte el ancho */
+  }
+  
+  #player-name {
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: black;
+    width: 100%; /* Ancho completo para dispositivos móviles */
+    box-sizing: border-box; /* Asegurar que el padding no afecte el ancho */
+  }
+  
+  #start-button,
+  #restart-button,
+  #end-game-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #ff5e5b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%; /* Botones de ancho completo para dispositivos móviles */
+    margin-top: 10px; /* Espaciado entre botones */
+  }
+  
+  #start-button:hover,
+  #restart-button:hover,
+  #end-game-button:hover {
+    background-color: #f09819;
+  }
+  
+  /* Menú de reinicio */
+  #restart-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%; /* Ancho máximo del menú */
+    max-width: 400px; /* Ancho máximo para pantallas grandes */
+    box-sizing: border-box; /* Asegurar que el padding no afecte el ancho */
+  }

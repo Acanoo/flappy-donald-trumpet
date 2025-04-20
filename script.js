@@ -1,24 +1,30 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
-// Dimensiones fijas para el lienzo
-canvas.width = 500; // Ancho del lienzo
-canvas.height = 800; // Alto del lienzo
+// Dimensiones dinámicas para el lienzo
+function resizeCanvas() {
+  canvas.width = window.innerWidth > 600 ? 400 : window.innerWidth * 0.9; // Ancho máximo de 400px o 90% del ancho de la pantalla
+  canvas.height = (canvas.width / 400) * 600; // Mantener la proporción 4:6
+}
+
+// Llamar a resizeCanvas al cargar la página y al redimensionar la ventana
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas(); // Inicializar el tamaño del lienzo
 
 // Variables globales
 let playerName = localStorage.getItem('playerName'); // Obtener el nombre del jugador desde localStorage
 let bird = { 
-  x: 50, 
-  y: 300, 
-  width: 60, 
-  height: 60, 
+  x: canvas.width / 10, 
+  y: canvas.height / 2, 
+  width: canvas.width / 10, 
+  height: canvas.width / 10, 
   gravity: 0.2, 
   lift: -4, 
   velocity: 0 
 };
 let pipes = [];
-let pipeWidth = 50;
-let pipeGap = 200; // Espacio vertical más grande entre las tuberías
+let pipeWidth = canvas.width / 8;
+let pipeGap = canvas.height / 3; // Espacio vertical más grande entre las tuberías
 let frame = 0;
 let score = 0;
 let gameOver = false;
@@ -83,8 +89,8 @@ endGameButton.addEventListener('click', () => {
 
 // Función para reiniciar el juego
 function resetGame() {
-  bird.x = 50;
-  bird.y = 300;
+  bird.x = canvas.width / 10;
+  bird.y = canvas.height / 2;
   bird.velocity = 0;
   pipes = [];
   frame = 0;
@@ -99,7 +105,7 @@ function drawBird() {
 
 // Función para actualizar las tuberías
 function updatePipes() {
-  if (frame % 150 === 0) { // Intervalo para crear nuevas tuberías
+  if (frame % 175 === 0) { // Intervalo para crear nuevas tuberías
     let topHeight = Math.random() * (canvas.height - pipeGap - 50) + 20;
     pipes.push({ x: canvas.width, top: topHeight });
   }
@@ -177,8 +183,14 @@ function gameLoop() {
   requestAnimationFrame(gameLoop);
 }
 
-// Evento para hacer que el pájaro vuele
+// Evento para hacer que el pájaro vuele con clics o toques
 document.addEventListener('keydown', () => {
+  if (!gameOver) {
+    bird.velocity = bird.lift; // Aplicar el impulso al volar
+  }
+});
+
+canvas.addEventListener('touchstart', () => {
   if (!gameOver) {
     bird.velocity = bird.lift; // Aplicar el impulso al volar
   }
