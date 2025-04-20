@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh;
+    background: linear-gradient(135deg, #ff5e5b, #f09819); /* Fondo futurista */
+  }
+  
+  #game-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: white;
+  }
+  
+  canvas {
+    border: 2px solid #fff;
+    background-color: #fff; /* Fondo blanco del canvas */
+  }
+  
+  /* Estilo del menú de inicio */
+  #start-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  #start-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #ff5e5b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #start-button:hover {
+    background-color: #f09819;
+  }
+
+  #restart-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  #restart-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #ff5e5b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #restart-button:hover {
+    background-color: #f09819;
+  }
+
+  #start-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  #player-name {
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: black;
+  }
+  
+  #start-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #ff5e5b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #start-button:hover {
+    background-color: #f09819;
+  }
+  #end-game-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #ff5e5b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #end-game-button:hover {
+    background-color: #f09819;
+  }
