@@ -1,3 +1,5 @@
+import { sendScore, getTopScores } from "./leaderboardUS.js";
+
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
@@ -73,6 +75,33 @@ const restartMenu = document.getElementById('restart-menu');
 const restartButton = document.getElementById('restart-button');
 const endGameButton = document.getElementById('end-game-button');
 
+// Función para mostrar el Top 10
+// Función para mostrar el Top 10
+async function showLeaderboard() {
+  const topScores = await getTopScores();
+  let leaderboardHTML = "<h2>Top 10 Jugadores</h2><ol>";
+  if (topScores.length === 0) {
+    leaderboardHTML += "<li>No hay puntajes disponibles</li>";
+  } else {
+    topScores.forEach((entry) => {
+      leaderboardHTML += `<li>${entry.player_name}: ${entry.score}</li>`;
+    });
+  }
+
+  leaderboardHTML += "</ol>";
+
+  // Actualiza el contenido del panel de puntajes
+  const leaderboardDiv = document.getElementById("leaderboard");
+  if (leaderboardDiv) {
+    leaderboardDiv.innerHTML = leaderboardHTML;
+  } else {
+    console.error("El contenedor #leaderboard no existe.");
+  }
+}
+
+
+
+// Evento para reiniciar el juego
 restartButton.addEventListener('click', () => {
   restartMenu.style.display = 'none'; // Ocultar el menú de reinicio
   resetGame(); // Reiniciar el juego
@@ -111,7 +140,7 @@ function updatePipes() {
   }
 
   pipes.forEach(pipe => {
-    pipe.x -= 2; // Mover las tuberías hacia la izquierda
+    pipe.x -= 1.5; // Mover las tuberías hacia la izquierda
   });
 
   // Eliminar tuberías fuera de la pantalla
@@ -132,6 +161,10 @@ function checkCollision() {
   if (bird.y + bird.height >= canvas.height || bird.y <= 0) {
     gameOver = true;
     restartMenu.style.display = 'block'; // Mostrar el menú de reinicio
+    if (score > 0 && playerName) {
+      sendScore(playerName, score); // Envía el puntaje a Firebase
+    }
+    showLeaderboard(); // Mostrar el Top 10
   }
 
   pipes.forEach(pipe => {
@@ -143,6 +176,10 @@ function checkCollision() {
       gameOver = true;
       pipe.isCollided = true; // Marcar esta tubería como colisionada
       restartMenu.style.display = 'block'; // Mostrar el menú de reinicio
+      if (score > 0 && playerName) {
+        sendScore(playerName, score); // Envía el puntaje a Firebase
+      }
+      showLeaderboard(); // Mostrar el Top 10
     }
   });
 }

@@ -7,21 +7,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="game-container">
-        <h1>Flappy Bird</h1>
-        <canvas id="gameCanvas"></canvas>
-        <!-- Menú de inicio -->
-        <div id="start-menu">
-          <label for="player-name">Nombre del jugador:</label>
-          <input type="text" id="player-name" placeholder="Ingresa tu nombre">
-          <button id="start-button">Iniciar Juego</button>
-        </div>
-        <!-- Botón de reinicio -->
-        <div id="restart-menu" style="display: none;">
-          <button id="restart-button">Reiniciar Partida</button>
-          <button id="end-game-button">Finalizar Partida</button>
-        </div>
-      </div>
-  <script src="script.js"></script>
+  <div id="game-container">
+    <h1>Flappy BrainRot</h1>
+    <canvas id="gameCanvas"></canvas>
+    <!-- Menú de inicio -->
+    <div id="start-menu">
+      <label for="player-name">Nombre del jugador:</label>
+      <input type="text" id="player-name" placeholder="Ingresa tu nombre">
+      <button id="start-button">Iniciar Juego</button>
+    </div>
+    <!-- Botón de reinicio -->
+    <div id="restart-menu" style="display: none;">
+      <button id="restart-button">Reiniciar Partida</button>
+      <button id="end-game-button">Finalizar Partida</button>
+    </div>
+    <!-- Panel de puntajes -->
+    <div id="leaderboard">
+      <!-- El panel de puntajes se generará aquí -->
+    </div>
+  </div>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
