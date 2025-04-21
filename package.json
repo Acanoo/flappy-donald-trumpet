@@ -1,17 +1,12 @@
 {
-  "dependencies": {
-    "firebase": "^11.6.0"
-  }
-}
-{
   "name": "flappy-donald-trumpet",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "type": "module", // Asegúrate de incluir esto
+  "type": "module",
   "dependencies": {
-    "firebase": "^9.0.0"
+    "firebase": "^11.6.0"
   }
 }
