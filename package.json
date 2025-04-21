@@ -3,3 +3,15 @@
     "firebase": "^11.6.0"
   }
 }
+{
+  "name": "flappy-donald-trumpet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "type": "module", // Asegúrate de incluir esto
+  "dependencies": {
+    "firebase": "^9.0.0"
+  }
+}
